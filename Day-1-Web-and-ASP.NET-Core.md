@@ -746,6 +746,9 @@ app.Use(async (context, next) =>
 
  *"Why do you think the order of middleware matters?"*
 
+
+ Because each middleware can depend on the work performed by the middleware before it. The order determines what information is available and what actions can be performed at each stage of the request
+
 ---
 
 # Part 4 — Project Structure, Controllers & Routing
