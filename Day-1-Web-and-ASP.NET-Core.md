@@ -26,7 +26,6 @@ By the end of this session, you will understand:
 
 ## 1.1 What Is the Web?
 
-> **Instructor Note:** Ask participants — *"When you type a URL and press Enter, what do you think happens behind the scenes?"*
 
 The Web is a system of interconnected documents and resources accessed via the Internet. At its core, it is built on a simple model:
 
@@ -292,9 +291,6 @@ Headers carry metadata about the request or response. They are key-value pairs.
 
 ---
 
-> **Instructor Note:** Take a 5-minute break here before moving to REST principles.
-
----
 
 # Part 2 — REST Principles
 
@@ -533,7 +529,7 @@ GET /api/products?page=1&pageSize=20
 
 ---
 
-> **Instructor Note:** Ask the class — *"Can you think of a situation where returning HTTP 200 for everything would actually cause a real problem in production?"*
+>  *"Can you think of a situation where returning HTTP 200 for everything would actually cause a real problem in production?"*
 
 ---
 
@@ -748,7 +744,10 @@ app.Use(async (context, next) =>
 
 ---
 
-> **Instructor Note:** Ask participants — *"Why do you think the order of middleware matters?"*
+ *"Why do you think the order of middleware matters?"*
+
+
+ Because each middleware can depend on the work performed by the middleware before it. The order determines what information is available and what actions can be performed at each stage of the request
 
 ---
 
@@ -1159,7 +1158,7 @@ Notice:
 
 ---
 
-> **Instructor Note:** Before moving to Dependency Injection, ask the class — *"Look at the controller above. What would happen if we needed to change the database? Would we need to change the controller?"*
+>**  — *"Look at the controller above. What would happen if we needed to change the database? Would we need to change the controller?"*
 
 ---
 
@@ -1406,7 +1405,7 @@ public class OrdersController : ControllerBase
 
 ---
 
-> **Ask the Class:** *"Why do you think ASP.NET Core uses Dependency Injection as a built-in feature, rather than leaving it to developers to implement?"*
+>  *"Why do you think ASP.NET Core uses Dependency Injection as a built-in feature, rather than leaving it to developers to implement?"*
 
 ---
 
