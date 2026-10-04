@@ -1,31 +1,44 @@
-# Week 2 Day 1 — Practical Exercises
+# Day 1 — Exercises
 
 Practical coding exercises for **Day 1 — Web & ASP.NET Core**.
 
-Every exercise targets **.NET 8 / ASP.NET Core 8** and uses the same in-memory **Departments** resource as the lesson (no database, no EF Core, no authentication).
+Every exercise targets **.NET 8 / ASP.NET Core 8** and uses in-memory data (no database).
 
-| Exercise | Topic | Lesson | Project |
-|----------|-------|--------|---------|
-| 01 | Controllers and Routing | [04 — Controllers and Routing](../04-Controllers-and-Routing.md) | [Exercise-01-Controllers-and-Routing](Exercise-01-Controllers-and-Routing/) |
-| 02 | Dependency Injection | [05 — Dependency Injection](../05-Dependency-Injection.md) | [Exercise-02-Dependency-Injection](Exercise-02-Dependency-Injection/) |
-| 03 | Final Challenge | [Day 1 — Final Challenge](../Day-1-Web-and-ASP.NET-Core.md) | [Exercise-03-Final-Challenge](Exercise-03-Final-Challenge/) |
+## 📋 Exercise List
 
-## How each exercise folder is organised
+| # | Exercise | Kind | README |
+|---|----------|------|--------|
+| 01 | Create the Web API Project | Hands-on | [README](01-Create-Web-API-Project/README.md) |
+| 02 | Create `EmployeesController` | Starter + Solution | [README](02-Employees-Controller/README.md) |
+| 03 | `GET /api/employees` | Starter + Solution | [README](03-Get-All-Employees/README.md) |
+| 04 | `GET /api/employees/{id}` | Starter + Solution | [README](04-Get-Employee-By-Id/README.md) |
+| 05 | Routing Challenge (debug) | Broken starter + fix | [README](05-Routing-Challenge/README.md) |
+| 06 | Extract `IEmployeeService` | Starter + Solution | [README](06-Employee-Service/README.md) |
+| 07 | Register & inject | Starter + Solution | [README](07-Dependency-Injection/README.md) |
+| 08 | Final Challenge: Departments API | Starter + Solution | [README](08-Final-Challenge/README.md) |
 
-```text
-Exercise-0X-.../
-├── README.md      ← objective, requirements, expected result, commands
-├── Starter/       ← the code you start from (contains TODOs, not the solution)
-└── Solution/      ← the finished implementation — check it only after trying
-```
+## 🏗️ Structure
 
-## Suggested order
+Each exercise folder contains:
 
-1. **Exercise 01** — build the endpoints with a controller and routing.
-2. **Exercise 02** — take that working controller and move the data behind a service with Dependency Injection.
-3. **Exercise 03** — build the same feature from scratch, without the lesson open.
+- **README.md** — objective, requirements, how to run, how to test
+- **Starter/** — the starting state (with TODOs, not the solution)
+- **Solution/** — the completed implementation (open only after trying)
 
-## Commands (verified for these projects)
+Exercises 02–04 and 06–07 build on each other. The Starter of Exercise N is the Solution of Exercise N-1.
+
+## 📝 Suggested Order
+
+1. **Exercise 01** — create the project, run it
+2. **Exercise 02** — add the controller skeleton
+3. **Exercise 03** — return the employee list
+4. **Exercise 04** — add the `GET /{id}` endpoint
+5. **Exercise 05** — debug a broken controller (standalone)
+6. **Exercise 06** — extract the service
+7. **Exercise 07** — register and inject
+8. **Exercise 08** — final challenge: build a Departments API from scratch
+
+## 🔧 Commands (verified)
 
 ```bash
 cd Starter        # or Solution
@@ -34,12 +47,20 @@ dotnet build
 dotnet run
 ```
 
-Then read the address the console prints:
+The console prints your address:
 
 ```text
-Now listening on: http://localhost:5228      ← example from Exercise 01
+Now listening on: http://localhost:5228
 ```
 
-The port comes from `Properties/launchSettings.json` of the project you are running.
+Then test with `curl`:
+
+```bash
+curl -i http://localhost:5228/api/employees
+```
+
+Use the port printed by **your** console.
+
+---
 
 > 💡 **Senior Developer Note:** Do not open `Solution/` before you have tried the `Starter/`. The value of these exercises is in the debugging, not in the copying.
