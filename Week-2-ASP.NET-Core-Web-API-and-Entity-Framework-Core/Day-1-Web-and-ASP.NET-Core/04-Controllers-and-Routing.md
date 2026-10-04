@@ -514,6 +514,8 @@ Allow: GET
 
 ## 🧪 Exercise 1 — Build the Departments Endpoints
 
+**Exercise files:** [Exercise 01 — Controllers and Routing](Exercises/Exercise-01-Controllers-and-Routing/) (Starter + Solution)
+
 Add a `Department` type in `Models/Department.cs`:
 
 ```csharp

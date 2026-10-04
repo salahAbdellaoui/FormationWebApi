@@ -157,6 +157,8 @@ Exercises are spread inside the topic file they belong to. You never leave a top
 | 04 | Controller writing, route prediction, **debugging challenges** (404, 405, wrong route) |
 | 05 | Service extraction, registration, injection, lifetime choice, **debugging challenge** (missing registration) |
 
+**Exercise projects (Starter + Solution):** [Exercises/](Exercises/)
+
 ---
 
 ## 🏆 Final Challenge
@@ -168,6 +170,8 @@ At the end of the day, without looking at the lesson:
 3. Add `GET /api/departments/{id}` returning one department or `404`.
 4. Put the data behind an `IDepartmentService` registered with **Scoped** and injected into the controller.
 5. Explain in one paragraph: from `curl http://localhost:xxxx/api/departments/2` to the JSON in the response.
+
+**Exercise files:** [Exercise 03 — Final Challenge](Exercises/Exercise-03-Final-Challenge/) (Starter + Solution)
 
 If you can do that, you understood Day 1.
 

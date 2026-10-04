@@ -440,6 +440,8 @@ That is the whole day, in one picture.
 
 ## 🧪 Exercise 1 — Extract a Service (Departments)
 
+**Exercise files:** [Exercise 02 — Dependency Injection](Exercises/Exercise-02-Dependency-Injection/) (Starter + Solution)
+
 Take your `DepartmentsController` from Topic 04, Exercise 1 and move everything except HTTP out of it.
 
 1. Create `Services/IDepartmentService.cs`:
