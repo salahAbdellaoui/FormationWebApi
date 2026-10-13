@@ -36,6 +36,7 @@ By the end of this module, you will be able to:
 10. Apply security headers and HTTPS enforcement
 11. Understand rate limiting, CORS, and defense-in-depth principles
 12. Recognize common security anti-patterns and avoid them
+13. Trace a complete request through the middleware pipeline and explain where each concern is handled
 
 ---
 
@@ -81,6 +82,7 @@ Each topic builds on the previous one. Authentication must exist before authoriz
 | 09 | [Configuration and Secrets](09-Configuration-and-Secrets.md) | appsettings, User Secrets, Key Vault |
 | 10 | [CORS](10-CORS.md) | Cross-origin requests, preflight, policies |
 | 11 | [Security Best Practices](11-Security-Best-Practices.md) | Comprehensive security checklist |
+| 12 | [Putting Everything Together](12-Putting-Everything-Together.md) | Complete request walkthrough |
 
 ---
 
@@ -100,6 +102,14 @@ By the end of Part B, your API handles errors gracefully, rejects invalid input,
 
 ---
 
+## Part C — Integration
+
+Topic 12 brings everything together. You follow a single request from the moment it arrives at the server to the moment the response leaves. You see how exception handling, CORS, authentication, authorization, validation, application services, infrastructure, and logging all work together on every request. You also see what happens when things go wrong: expired tokens, insufficient permissions, invalid input, and database failures.
+
+By the end of Part C, you understand not just what each practice does individually, but how they form a complete, layered defense in a professional ASP.NET Core Web API.
+
+---
+
 ## Expected Outcome
 
 After completing this module, you will understand:
@@ -108,6 +118,7 @@ After completing this module, you will understand:
 - **How** JWT tokens work: structure, signing, validation, expiry, and refresh
 - **What** role-based and policy-based authorization provide and when to use each
 - **How** to build a defense-in-depth strategy: validation, authentication, authorization, error handling, logging, and secure configuration working together
+- **How** each middleware layer contributes to the security and reliability of a request pipeline
 - **Why** security is not a feature you add once, but a property you maintain continuously
 
 You will not build a perfectly secure API. Perfect security does not exist. You will build a **significantly more secure** API than where you started, and you will understand the principles that let you keep improving it.
@@ -116,7 +127,7 @@ You will not build a perfectly secure API. Perfect security does not exist. You 
 
 ## Final Review Checklist
 
-After completing all 11 topics, you should be able to:
+After completing all 12 topics, you should be able to:
 
 - [ ] Explain the difference between authentication and authorization with concrete examples
 - [ ] Describe the structure of a JWT token and why the signature matters
@@ -128,6 +139,7 @@ After completing all 11 topics, you should be able to:
 - [ ] Validate input using both Data Annotations and FluentValidation
 - [ ] Implement structured logging with appropriate log levels
 - [ ] Manage secrets using User Secrets (dev) or Key Vault (production) — never in source control
+- [ ] Trace a request through the complete middleware pipeline and explain where each concern is handled
 
 ---
 
