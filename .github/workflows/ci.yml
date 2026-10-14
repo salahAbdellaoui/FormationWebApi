@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "EmployeeManagement/**"
+  pull_request:
+    branches: [main]
+    paths:
+      - "EmployeeManagement/**"
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET 8 SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Restore dependencies
+        run: |
+          dotnet restore EmployeeManagement/src/EmployeeManagement.API/EmployeeManagement.API.csproj
+          dotnet restore EmployeeManagement/tests/EmployeeManagement.Domain.Tests/EmployeeManagement.Domain.Tests.csproj
+          dotnet restore EmployeeManagement/tests/EmployeeManagement.Application.Tests/EmployeeManagement.Application.Tests.csproj
+          dotnet restore EmployeeManagement/tests/EmployeeManagement.API.Tests/EmployeeManagement.API.Tests.csproj
+
+      - name: Build production projects
+        run: |
+          dotnet build EmployeeManagement/src/EmployeeManagement.Domain/EmployeeManagement.Domain.csproj --no-restore -c Release
+          dotnet build EmployeeManagement/src/EmployeeManagement.Application/EmployeeManagement.Application.csproj --no-restore -c Release
+          dotnet build EmployeeManagement/src/EmployeeManagement.Infrastructure/EmployeeManagement.Infrastructure.csproj --no-restore -c Release
+          dotnet build EmployeeManagement/src/EmployeeManagement.API/EmployeeManagement.API.csproj --no-restore -c Release
+
+      - name: Run Domain unit tests
+        run: dotnet test EmployeeManagement/tests/EmployeeManagement.Domain.Tests/EmployeeManagement.Domain.Tests.csproj --no-restore -c Release --verbosity normal
+
+      - name: Run Application service unit tests
+        run: dotnet test EmployeeManagement/tests/EmployeeManagement.Application.Tests/EmployeeManagement.Application.Tests.csproj --no-restore -c Release --verbosity normal
+
+      - name: Run API integration tests
+        run: dotnet test EmployeeManagement/tests/EmployeeManagement.API.Tests/EmployeeManagement.API.Tests.csproj --no-restore -c Release --verbosity normal
