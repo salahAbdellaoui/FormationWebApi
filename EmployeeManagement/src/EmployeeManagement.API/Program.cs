@@ -253,6 +253,16 @@ using (var scope = app.Services.CreateScope())
     var logger = services.GetRequiredService<ILogger<Program>>();
 
     await RoleInitializer.InitializeAsync(roleManager, userManager, logger);
+
+    // Development-only test account seeding.
+    // Creates the admin and user1 accounts when their credentials are
+    // configured via User Secrets or environment variables. This runs ONLY
+    // in the Development environment and does not affect production.
+    if (app.Environment.IsDevelopment())
+    {
+        var config = services.GetRequiredService<IConfiguration>();
+        await DevelopmentSeeder.SeedAsync(userManager, config, logger);
+    }
 }
 
 // Start listening for HTTP requests.
