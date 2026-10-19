@@ -1,0 +1,42 @@
+body {
+  margin: 0;
+  padding: 24px;
+  background: #f4f6f8;
+  color: #222;
+  font-family: Arial, sans-serif;
+}
+
+main {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+}
+
+.user-count {
+  color: #444;
+  font-weight: bold;
+  text-align: center;
+}
+
+.empty-message {
+  padding: 24px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.user-card {
+  margin-bottom: 12px;
+  padding: 16px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.user-card h2 {
+  margin-top: 0;
+}
